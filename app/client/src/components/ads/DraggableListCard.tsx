@@ -192,6 +192,9 @@ export function DraggableListCard(props: RenderComponentProps) {
          */}
         {showCheckbox && (
           <StyledCheckbox
+            className={`t--card-checkbox ${
+              item.isChecked ? "t--checked" : "t--unchecked"
+            }`}
             disabled={item.isCheckboxDisabled}
             isDefaultChecked={item.isChecked}
             label=""

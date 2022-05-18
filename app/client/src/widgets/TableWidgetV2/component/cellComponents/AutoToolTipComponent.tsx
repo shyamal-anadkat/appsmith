@@ -59,6 +59,7 @@ function LinkWrapper(props: Props) {
     <CellWrapper
       allowCellWrapping={props.allowCellWrapping}
       cellBackground={props.cellBackground}
+      className="cell-wrapper"
       compactMode={props.compactMode}
       fontStyle={props.fontStyle}
       horizontalAlignment={props.horizontalAlignment}
@@ -119,6 +120,7 @@ function AutoToolTipComponent(props: Props) {
       <CellWrapper
         allowCellWrapping={props.allowCellWrapping}
         cellBackground={props.cellBackground}
+        className="cell-wrapper"
         compactMode={props.compactMode}
         fontStyle={props.fontStyle}
         horizontalAlignment={props.horizontalAlignment}

@@ -158,6 +158,7 @@ export function TextCell({
   return (
     <Container
       cellBackground={cellBackground}
+      className="t--table-text-cell"
       isCellEditMode={isCellEditMode}
       verticalAlignment={verticalAlignment}
     >
@@ -192,7 +193,7 @@ export function TextCell({
           <StyledEditIcon
             accentColor={accentColor}
             backgroundColor={cellBackground}
-            className="editable-cell-icon"
+            className="editable-cell-icon t--editable-cell-icon"
             compactMode={compactMode}
             onMouseUp={onEditHandler}
           >
