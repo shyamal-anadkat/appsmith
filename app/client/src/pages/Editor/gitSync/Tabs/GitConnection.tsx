@@ -235,7 +235,7 @@ function GitConnection({ isImport }: Props) {
     if (!SSHKeyPair && !isImport) {
       fetchSSHKeyPair();
     }
-  }, [SSHKeyPair, isImport]);
+  }, []);
 
   const stopShowingCopiedAfterDelay = () => {
     timerRef.current = setTimeout(() => {

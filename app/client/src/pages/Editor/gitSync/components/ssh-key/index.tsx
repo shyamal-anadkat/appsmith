@@ -31,6 +31,7 @@ import { supportedKeyTypeList } from "./SupportedKeyTypeList";
 import getNotificationBanner from "./getNotificationBanner";
 import { getConfirmMenuItem } from "./getConfirmMenuItem";
 import { getMenuItems } from "./getMenuItems";
+import { SSHKeyType } from "../../../../../actions/gitSyncActions";
 
 type KeysProps = {
   copyToClipboard: () => void;
@@ -39,6 +40,19 @@ type KeysProps = {
   SSHKeyPair: string;
   isImport?: boolean;
 };
+
+const defaultKeyTypes: SSHKeyType[] = [
+  {
+    keySize: 256,
+    platFormSupported: "",
+    protocolName: "ECDSA",
+  },
+  {
+    keySize: 4096,
+    platFormSupported: "Azure Devops",
+    protocolName: "RSA",
+  },
+];
 
 const defaultKeyType = {
   keySize: 256,
@@ -56,7 +70,7 @@ function Keys(props: KeysProps) {
   const [keyType, keyVal, keyName] = SSHKeyPair.split(" ");
   const exactKeyType = keyType.startsWith("ecdsa") ? "ECDSA" : "RSA";
   const supportedKeys = supportedKeyTypeList(
-    useSelector(getSupportedKeyTypes) || [defaultKeyType],
+    useSelector(getSupportedKeyTypes) || defaultKeyTypes,
     exactKeyType,
   );
   const keyText = `${keyVal} ${keyName}`;
