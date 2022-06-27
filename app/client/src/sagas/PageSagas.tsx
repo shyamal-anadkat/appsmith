@@ -850,8 +850,12 @@ export function* updateWidgetNameSaga(
       ) {
         const request: UpdateWidgetNameRequest = {
           newName: action.payload.newName,
-          oldName: widgetName, // @ts-expect-error: pageId can be undefined
-          pageId, // @ts-expect-error: layoutId can be undefined
+          oldName: widgetName,
+
+          /* @ts-expect-error: pageId can be undefined */
+          pageId,
+
+          /* @ts-expect-error: layoutId can be undefined */
           layoutId,
         };
         const response: UpdateWidgetNameResponse = yield call(
@@ -1041,7 +1045,9 @@ export function* generateTemplatePageSaga(
       yield put(
         generateTemplateSuccess({
           page: response.data.page,
-          isNewPage: !request.pageId, // if pageId if not defined, that means a new page is generated.
+          isNewPage: !request.pageId,
+
+          /* if pageId if not defined, that means a new page is generated. */
         }),
       );
 
